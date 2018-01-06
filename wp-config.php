@@ -25,18 +25,31 @@
 // を使用し、必ず UTF-8 の BOM なし (UTF-8N) で保存してください。
 
 // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
-/** WordPress のためのデータベース名 */
-define('DB_NAME', 'heroku_20d5953b2624bf6');
+if (strpos($_SERVER['SERVER_ADDR'], '192.168.56') !== FALSE) {
+	/** WordPress のためのデータベース名 */
+	define('DB_NAME', 'wordpress_site');
 
-/** MySQL データベースのユーザー名 */
-define('DB_USER', 'bff5fef3aca7c0');
+	/** MySQL データベースのユーザー名 */
+	define('DB_USER', 'root');
 
-/** MySQL データベースのパスワード */
-define('DB_PASSWORD', '82366a69');
+	/** MySQL データベースのパスワード */
+	define('DB_PASSWORD', 'rootroot');
 
-/** MySQL のホスト名 */
-define('DB_HOST', 'us-cdbr-iron-east-05.cleardb.net');
+	/** MySQL のホスト名 */
+	define('DB_HOST', 'localhost');
+} else {
+	/** WordPress のためのデータベース名 */
+	define('DB_NAME', 'heroku_20d5953b2624bf6');
 
+	/** MySQL データベースのユーザー名 */
+	define('DB_USER', 'bff5fef3aca7c0');
+
+	/** MySQL データベースのパスワード */
+	define('DB_PASSWORD', '82366a69');
+
+	/** MySQL のホスト名 */
+	define('DB_HOST', 'us-cdbr-iron-east-05.cleardb.net');
+}
 /** データベースのテーブルを作成する際のデータベースの文字セット */
 define('DB_CHARSET', 'utf8');
 
